@@ -33,4 +33,10 @@ public class UrlService {
 		}
 	}
 
+	public String decodeUrl(String shorts){
+		return urlRepository.findByShorts(shorts)
+							.orElseThrow(()->new BusinessException(ErrorCode.INVALID_SHORT_URL))
+							.getOriginal();
+	}
+
 }

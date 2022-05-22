@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "hibernate",
+      "type": "java.lang.String",
+      "description": "Description for hibernate."
+    },
+    {
+      "name": "org.hibernate.SQL",
+      "type": "java.lang.String",
+      "description": "Description for org.hibernate.SQL."
+    }
+  ] }

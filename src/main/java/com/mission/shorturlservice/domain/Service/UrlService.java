@@ -21,9 +21,9 @@ public class UrlService {
 	@Transactional
 	public ShortsResponse encodeUrl(String original){
 		if(urlRepository.existsByOriginal(original)){
-			return new ShortsResponse(urlRepository
-										  .findByOriginal(original)
-										  .getShorts());
+			Url url = urlRepository.findByOriginal(original);
+			url.increaseCount();
+			return new ShortsResponse(url.getShorts());
 		}else{
 			Url url = urlRepository.save(Url.builder().original(original).build());
 			String shorts = base62.encoding(url.getIndex());

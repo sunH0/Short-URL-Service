@@ -31,7 +31,7 @@ public class Url {
 	@Column(name = "shorts")
 	private String shorts;
 
-	@Column(name = "count", columnDefinition = "int default 1")
+	@Column(name = "count", columnDefinition = "int default 0")
 	private int count;
 
 	@Builder

@@ -6,6 +6,7 @@ import com.mission.shorturlservice.domain.dto.OriginalUrlRequest;
 import com.mission.shorturlservice.domain.dto.ShortsResponse;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@RequestMapping("/shortUrl")
+@RequestMapping("/api/shortUrl")
 @RestController
 public class UrlController {
 
 	private final UrlService urlService;
 
 	@PostMapping
-	public ApiResponse<ShortsResponse> getShortUrl(@RequestBody OriginalUrlRequest request){
+	public ApiResponse<ShortsResponse> getShortUrl(@RequestBody @Valid OriginalUrlRequest request){
 
 		ShortsResponse shortsResponse = urlService.encodeUrl(request.getOriginal());
 		return ApiResponse.ok(shortsResponse);

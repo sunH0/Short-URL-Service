@@ -3,7 +3,7 @@ package com.mission.shorturlservice.global.util;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Base62 {
+public class Base62Encoder {
 
 	private static final int BASE = 62;
 	private static final char[] words =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();

@@ -25,14 +25,16 @@ public class UrlController {
 	@PostMapping
 	public ApiResponse<ShortsResponse> getShortUrl(@RequestBody @Valid OriginalUrlRequest request){
 
-		ShortsResponse shortsResponse = urlService.encodeUrl(request.getOriginal());
+		// trim() : 앞 뒤 공백 제거
+		ShortsResponse shortsResponse = urlService.encodeUrl(request.getOriginal().trim());
 		return ApiResponse.ok(shortsResponse);
 	}
 
 	@GetMapping("/{shortUrl}")
 	public void redirectUrl(@PathVariable(value = "shortUrl") String shortUrl, HttpServletResponse response)
 		throws IOException {
-		response.sendRedirect(urlService.decodeUrl(shortUrl));
+		String originalUrl = urlService.decodeUrl(shortUrl);
+		response.sendRedirect(originalUrl);
 	}
 
 }

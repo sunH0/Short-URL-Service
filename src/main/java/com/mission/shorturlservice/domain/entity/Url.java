@@ -12,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -21,22 +22,21 @@ public class Url {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer index;
+	private Integer id;
 
 	@Column(name = "original", nullable = false, unique = true)
 	@Lob
-	private String original;
+	private String originalURL;
 
 	@Column(name = "shorts")
 	private String shorts;
 
-	@Column(name = "count")
-	@ColumnDefault("1")
+	@Column(name = "count", columnDefinition = "int default 1")
 	private int count;
 
 	@Builder
-	public Url(String original) {
-		this.original = original;
+	public Url(String originalURL) {
+		this.originalURL = originalURL;
 	}
 
 	public void increaseCount() {

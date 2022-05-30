@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UrlRepository extends JpaRepository<Url, Integer> {
 
-	boolean existsByOriginal(String original);
+	boolean existsByOriginalURL(String original);
 
 	Optional<Url> findByShorts(String shorts);
 
-	Url findByOriginal(String original);
+	Url findByOriginalURL(String original);
 
 }

@@ -20,13 +20,13 @@ public class UrlService {
 
 	@Transactional
 	public ShortsResponse encodeUrl(String original){
-		if(urlRepository.existsByOriginal(original)){
-			Url url = urlRepository.findByOriginal(original);
+		if(urlRepository.existsByOriginalURL(original)){
+			Url url = urlRepository.findByOriginalURL(original);
 			url.increaseCount();
 			return ShortsResponse.of(url);
 		}else{
-			Url url = urlRepository.save(Url.builder().original(original).build());
-			String shorts = base62.encoding(url.getIndex());
+			Url url = urlRepository.save(Url.builder().originalURL(original).build());
+			String shorts = base62.encoding(url.getId());
 			url.setShorts(shorts);
 
 			return ShortsResponse.of(url);
@@ -36,7 +36,7 @@ public class UrlService {
 	public String decodeUrl(String shorts){
 		return urlRepository.findByShorts(shorts)
 							.orElseThrow(()->new BusinessException(ErrorCode.INVALID_SHORT_URL))
-							.getOriginal();
+							.getOriginalURL();
 	}
 
 }

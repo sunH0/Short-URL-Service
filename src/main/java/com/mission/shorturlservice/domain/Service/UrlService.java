@@ -23,13 +23,13 @@ public class UrlService {
 		if(urlRepository.existsByOriginal(original)){
 			Url url = urlRepository.findByOriginal(original);
 			url.increaseCount();
-			return new ShortsResponse(url.getShorts());
+			return ShortsResponse.of(url);
 		}else{
 			Url url = urlRepository.save(Url.builder().original(original).build());
 			String shorts = base62.encoding(url.getIndex());
 			url.setShorts(shorts);
 
-			return new ShortsResponse(shorts);
+			return ShortsResponse.of(url);
 		}
 	}
 

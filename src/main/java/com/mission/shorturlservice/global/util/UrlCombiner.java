@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class UrlCombiner {
 
-	@Value("${sever.host}")
+	@Value("${server.host}")
 	private String host;
 
 	@Value("${server.port}")
 	private String port;
 
 	public String combineShortUrl(String path){
-		return "http://" +host +":" +port +"/" +path;
+		return "http://" +host +":" +port +"/" +"shortner/" +path;
 	}
 
 }

@@ -29,9 +29,6 @@ public class UrlShortenerService {
 
 	public String getOriginUrl(String encodedUrl) {
 		Optional<ShortenUrl> optional = urlShortenerRepository.findById(base62Utils.decode(encodedUrl));
-		if (optional.isEmpty()) {
-			throw new RuntimeException();
-		}
 		return optional.orElseThrow(() -> new RuntimeException()).getOriginUrl();
 	}
 }

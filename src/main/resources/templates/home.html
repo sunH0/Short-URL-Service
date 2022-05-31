@@ -32,9 +32,8 @@
       contentType: 'application/json; charset=utf-8',
       dataType: "text"
     }).done(function(result) {
-      let parse = result;
-      console.log(parse);
-      let response = "<p>shorten url: <a href=" + parse +" target='_blank'>" + parse +"</a></p>";
+      let parse = JSON.parse(result);
+      let response = "<p>shorten url: <a href=" + "http://" + parse.originUrl +" target='_blank'>" + parse.shortenUrl +"</a></p>";
       $("#result").empty();
       $("#result").append(response);
     }).fail(function() {

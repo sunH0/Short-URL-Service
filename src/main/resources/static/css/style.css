@@ -3,7 +3,7 @@
   top: 20%;
   left: 23%;
   width: 60%;
-  height: 50%;
+  height: 60%;
   background-color: dodgerblue;
   text-align: center;
   border-radius: 70px;
@@ -33,4 +33,10 @@
   left: 28%;
   top: 70%;
   font-weight: bold;
+}
+
+#count {
+  position: absolute;
+  left: 42%;
+  top: 85%;
 }

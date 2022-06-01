@@ -13,12 +13,15 @@
 <div id="container">
   <h1>URL Shortener</h1>
   <div>
-    <input type="text"  id="url-input" placeholder="단축할 url 입력" name="original">
+    <input type="text"  id="url-input" placeholder="단축할 url 입력 (반드시 http:// 또는 https://로 시작해주세요!)" style="text-align: center" name="original">
     <button type="button" id="url-button">URL 변환</button>
   </div>
   <div id="result">
     <div>결과</div>
-    <input type="text" placeholder="단축된 URL 결과" style="width: 30em"  name="shortURL">
+    <input type="text" placeholder="단축된 URL 결과" style="width: 30em; text-align: center; height: 0.7cm"  name="shortURL">
+  </div>
+  <div id="count">
+    <input type="text" placeholder="요청 URL 통계" style="text-align: center"  name="urlCount">
   </div>
 </div>
 </body>

@@ -9,6 +9,7 @@ ShortenURLUnit.prototype = {
     let urlText = document.getElementById('url-input');
     let urlButton = document.getElementById('url-button');
     let result =  document.getElementById('result').lastChild.previousSibling;
+    let count =  document.getElementById('count').lastChild.previousSibling;
 
     var httpRequest = new XMLHttpRequest();
     urlButton.addEventListener('click', function(){
@@ -16,6 +17,7 @@ ShortenURLUnit.prototype = {
         if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
           let urlShorten = JSON.parse(httpRequest.responseText);
           result.value = urlShorten.data.shortUrl;
+          count.value = urlShorten.data.count;
         }
       }
       let data = {

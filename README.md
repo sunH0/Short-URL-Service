@@ -2,7 +2,7 @@
 
 ### :triangular_flag_on_post: About
 - url 단축 서비스 미션 프로젝트 입니다.
-- 스터디원의 프로젝트 결과물은 해당 브렌치를 통해 확인해주세요! ex) sunh0_main
+- 스터디원의 프로젝트 결과물은 해당 브렌치를 통해 확인해주세요! ex) sunh0/main
 
 ### :clipboard: 요구 사항
 1. URL 입력폼 제공 및 결과 출력

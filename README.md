@@ -17,3 +17,4 @@
 1. Index를 통한 조회 성능 향상 시도
 2. Spring Batch 와 Scheduler를 통한 오래된 데이터 삭제
 
+![image](https://user-images.githubusercontent.com/88185732/176747157-eebefe45-241a-4514-a81d-cd78e4f516a1.png)
